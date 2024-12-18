@@ -2,7 +2,7 @@ import axios from 'axios'
 import { getToken } from '@/utils/token'
 
 const request = axios.create({
-    baseURL: 'http://127.0.0.1:9508/api',
+    baseURL: 'http://127.0.0.1:8000/training',
     //baseURL: 'http://39.99.234.229:9508/api',
     timeout: 2000,
 });

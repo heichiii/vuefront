@@ -1,75 +1,5 @@
 <template>
     <div class="appmain">
-        <div class="app-blockdiv info-wrap">
-            <div class="appblock top">
-                <span class="icon-wrap phone">
-                    <i class="iconfont icon-shouji"></i>
-                </span>
-                <span class="bind-text">
-                    <h3>绑定手机</h3>
-                    <p>未绑定</p>
-                </span>
-                <button class="change-bt phone">更改手机</button>
-            </div>
-
-            <div class="appblock top">
-                <span class="icon-wrap email">
-                    <i class="iconfont icon-youxiang-"></i>
-                </span>
-                <span class="bind-text">
-                    <h3>绑定邮箱</h3>
-                    <p>5427***@qq.com</p>
-                </span>
-                <button class="change-bt email">更改邮箱</button>
-            </div>
-
-            <div class="appblock top">
-                <span class="icon-wrap weixin">
-                    <i class="iconfont icon-weixin"></i>
-                </span>
-                <span class="bind-text">
-                    <h3>绑定微信</h3>
-                    <p>未绑定</p>
-                </span>
-                <button class="change-bt weixin">更改微信</button>
-            </div>
-
-            <div class="appblock top">
-                <span class="icon-wrap qq">
-                    <i class="iconfont icon-QQ"></i>
-                </span>
-                <span class="bind-text">
-                    <h3>绑定qq</h3>
-                    <p>542745903</p>
-                </span>
-                <button class="change-bt qq">更改qq</button>
-            </div>
-
-            <div class="appblock login-history-wrap">
-                <h2 class="block-header">
-                    <i class="iconfont icon-shuju1 icon" style="color: darkcyan"></i>
-                    <span>最近的登录历史</span>
-                    <span class="more" @click="router.push({ name: 'LogHistory' })">更多 ></span>
-                </h2>
-                <table class="apptable login-history">
-                    <tr>
-                        <th>登录方式</th>
-                        <th>设备名称</th>
-                        <th>系统</th>
-                        <th>登录地点</th>
-                        <th>登录时间</th>
-                    </tr>
-                    <tr v-for="item in data.historyList">
-                        <td>{{ item.logMethods }}</td>
-                        <td>{{ item.logMechine }}</td>
-                        <td>{{ item.logSystem }}</td>
-                        <td>{{ item.logPlace }}</td>
-                        <td>{{ item.logTime }}</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
         <!-- 个人介绍 -->
         <div class="app-blockdiv intro-wrap">
             <div class="appcart intro-cart">
@@ -78,7 +8,7 @@
                 </div>
                 <h2 class="username">{{ userStore.userName }}</h2>
                 <p class="brief-intro">保持好奇与思考,不拘泥于表象</p>
-                <div class="github"><i class="iconfont icon-github-fill"></i> <a href="https://github.com/heyuheyun" target="_blank">Github</a></div>
+                <div class="github"><i class="iconfont icon-github-fill"></i> <a href="https://github.com/heichiii" target="_blank">Github</a></div>
                 <div class="detail-area">
                     <p>
                         <i class="iconfont icon-yonghu"></i> <span>{{ userStore.userName }}</span>
@@ -129,7 +59,7 @@ onBeforeMount(() => {
 
 <style lang="less" scoped>
 .intro-wrap {
-    width: 30%;
+    width: 100%;
     align-items: flex-start;
     flex: 0 0 auto;
 
@@ -139,7 +69,7 @@ onBeforeMount(() => {
         align-items: center;
 
         .portrait-wrap {
-            width: 25%;
+            width: 15%;
             border-radius: 50%;
             overflow: hidden;
             margin: 12px;

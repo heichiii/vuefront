@@ -6,7 +6,7 @@ import NProgress from "@/utils/nprogress";
 router.beforeEach(async (to, from, next) => {
     const userStore = useUserStore();
     NProgress.start();
-    document.title = to.meta.title ? to.meta.title + " - " + "Vue Timetable" : "Vue Timetable";
+    document.title = to.meta.title ? to.meta.title + " - " + "沧海" : "沧海";
     if (!userStore.isLogin) {
         if (to.path === "/login") {
             next();

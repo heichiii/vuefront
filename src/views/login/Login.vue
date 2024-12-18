@@ -1,12 +1,12 @@
 <template>
     <div class="login-wrapper">
         <div class="login-cart">
-            <p class="login-text">Vue Timetable</p>
+            <p class="login-text">沧海船舶</p>
 
             <!-- 输入 -->
             <div class="input-wrapper">
                 <i class="iconfont icon-user-filling icon"></i>
-                <input placeholder="请输入账号" v-model="logindata.account" />
+                <input placeholder="请输入用户名" v-model="logindata.username" />
             </div>
             <div class="input-wrapper">
                 <i class="iconfont icon-lock icon"></i>
@@ -17,15 +17,15 @@
             <!-- 角色选择 -->
             <div class="role-wrap">
                 <input type="radio" id="student" value="student" v-model="logindata.role" />
-                <label for="student">学生</label>
+                <label for="student">员工</label>
                 <input type="radio" id="teacher" value="teacher" v-model="logindata.role" />
-                <label for="teacher">教师</label>
+                <label for="teacher">培训师</label>
                 <input type="radio" id="admin" value="admin" v-model="logindata.role" />
                 <label for="admin">管理员</label>
             </div>
 
             <button class="loginbt" @click="loginHandle">登 录</button>
-            <p class="tip">账号:任意&nbsp;&nbsp;&nbsp;密码:任意</p>
+            <!-- <p class="tip">账号:任意&nbsp;&nbsp;&nbsp;密码:任意</p> -->
         </div>
     </div>
 </template>
@@ -43,8 +43,8 @@ const passwordInput = ref();
 const iconHide = ref();
 
 const logindata = reactive({
-    account: "admin",
-    password: "123456",
+    username: "heichi",
+    password: "heichi",
     role: "student",
 });
 
@@ -59,7 +59,9 @@ async function loginHandle() {
     const params = { ...logindata };
     const result = await reLogin(params);
     if (result.code && result.code === 200) {
+        console.log("OK");
         userStore.updataToken(result.data.token);
+        console.log("OK2");
         let result2 = await userStore.updataUserInfo();
         if (result2) router.push("/");
     }
@@ -102,7 +104,7 @@ async function loginHandle() {
             background-color: rgba(255, 255, 255, 0.1);
             width: 400px;
             height: 50px;
-            outline: 0.5px solid rgba(235, 235, 235, 0.3);
+            outline: 0.5px solid rgba(27, 182, 27, 0.3);
             border-radius: 5px;
             padding: 4px 12px;
             transition: 0.5s;
@@ -170,7 +172,7 @@ async function loginHandle() {
                     top: 2px;
                     width: 14px;
                     height: 14px;
-                    border: 1px solid rgba(207, 236, 204, 0.5);
+                    border: 1px solid rgba(236, 204, 204, 0.5);
                     border-radius: 4px;
                     content: "";
                     cursor: pointer;

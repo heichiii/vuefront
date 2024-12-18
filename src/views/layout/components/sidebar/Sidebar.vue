@@ -2,8 +2,8 @@
     <div class="bar-wrap" ref="barWrap">
         <!-- siderBarLogo -->
         <div class="info-header" ref="headDiv" v-show="setStore.siderLogoShow">
-            <img class="siderLogo" src="@/assets/logo.png">
-            <p> vue timetable </p>
+            <img class="siderLogo" src="@/assets/logo.svg">
+            <p> 沧海-培训系统 </p>
         </div>
 
         <!-- 菜单项 -->

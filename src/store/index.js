@@ -13,6 +13,12 @@ export const useUserStore=defineStore("user",{
             phone:null,
             isLogin:false,
             userRoutes:[],
+
+            id:null,
+            name:null,
+            department:null,
+            position:null,
+            email:null,
         }
     },
     actions:{
@@ -23,6 +29,13 @@ export const useUserStore=defineStore("user",{
                 this.userName=info.data.userName;
                 this.phone=info.data.phone;
                 this.isLogin=info.data.isLogin;
+
+                this.id=info.data.id;
+                this.name=info.data.name;
+                this.department=info.data.department;
+                this.position=info.data.position;
+                this.email=info.data.email;
+                
                 return true;
             }
             else return false;
