@@ -6,17 +6,19 @@
                 <div class="portrait-wrap">
                     <img src="@/assets/imgs/head_portrait.jpg" />
                 </div>
-                <h2 class="username">{{ userStore.userName }}</h2>
+                <h2 class="username">{{ userStore.username }}</h2>
                 <p class="brief-intro">保持好奇与思考,不拘泥于表象</p>
-                <div class="github"><i class="iconfont icon-github-fill"></i> <a href="https://github.com/heichiii" target="_blank">Github</a></div>
+                <div class="github"><i class="iconfont icon-github-fill"></i> <a href="https://github.com/heichiii"
+                        target="_blank">Github</a></div>
                 <div class="detail-area">
-                    <p>
-                        <i class="iconfont icon-yonghu"></i> <span>{{ userStore.userName }}</span>
-                    </p>
-                    <p> <i class="iconfont icon-nan"></i> <span>男</span> </p>
-                    <p> <i class="iconfont icon-shengri"></i> <span>1998/03</span> </p>
-                    <p> <i class="iconfont icon-dingwei"></i> <span>广东.广州</span> </p>
-                    <p> <i class="iconfont icon-icon-taikong8"> </i><span>html、css、javascript、vue、node</span> </p>
+                    <p> <span>用户名：{{ userStore.username }}</span> </p>
+                    <p> <span>姓名：{{ userStore.name }}</span> </p>
+                    <p> <span>工号：{{ userStore.id }}</span> </p>
+                    <p> <span>部门：{{ userStore.department }}</span> </p>
+                    <p> <span>职务：{{ userStore.position }}</span> </p>
+                    <p> <span>电话：{{ userStore.phone }}</span> </p>
+                    <p> <span>邮箱：{{ userStore.email }}</span> </p>
+                    <p> <span>角色：{{ userStore.role }}</span> </p>
                     <p class="tagp">个性标签</p>
                     <div class="tag-wrap">
                         <span class="tag">认真</span>
@@ -83,10 +85,12 @@ onBeforeMount(() => {
             font-weight: bolder;
             font-size: calc(@baseSize * 1.4);
         }
+
         .brief-intro {
             color: rgb(170, 170, 170);
             margin: 6px;
         }
+
         .github {
             display: flex;
             align-items: center;
@@ -96,6 +100,7 @@ onBeforeMount(() => {
             padding: 2px 16px;
             margin: 8px;
             cursor: pointer;
+
             &:hover {
                 background-color: @theme-main-color2;
             }
@@ -103,6 +108,7 @@ onBeforeMount(() => {
             i {
                 font-size: 22px;
             }
+
             a {
                 margin-left: 8px;
                 font-size: @baseSize;
@@ -175,18 +181,22 @@ onBeforeMount(() => {
                 font-size: 22px;
             }
         }
+
         .phone {
             background-color: rgb(197, 148, 202);
             box-shadow: 0px 0px 5px 5px rgba(182, 151, 201, 0.3);
         }
+
         .email {
             background-color: rgb(109, 166, 219);
             box-shadow: 0px 0px 5px 5px rgba(109, 166, 219, 0.3);
         }
+
         .weixin {
             background-color: rgb(128, 207, 181);
             box-shadow: 0px 0px 5px 5px rgba(133, 218, 190, 0.3);
         }
+
         .qq {
             background-color: rgb(241, 176, 122);
             box-shadow: 0px 0px 5px 5px rgba(241, 176, 122, 0.3);
@@ -202,6 +212,7 @@ onBeforeMount(() => {
                 margin-top: 2px;
                 font-weight: bolder;
             }
+
             p {
                 margin-top: 3px;
                 color: rgb(180, 180, 180);
@@ -251,6 +262,7 @@ onBeforeMount(() => {
                 font-weight: normal;
                 cursor: pointer;
                 color: rgb(156, 156, 156);
+
                 &:hover {
                     color: @theme-main-color2;
                 }
@@ -265,6 +277,7 @@ onBeforeMount(() => {
                 outline: 0;
                 border-bottom: 1px solid rgb(226, 226, 226);
             }
+
             tr:hover {
                 background-color: rgb(241, 241, 241);
             }

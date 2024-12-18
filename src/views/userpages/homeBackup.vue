@@ -3,7 +3,7 @@
         <div class="appcart welcome-wrap">
             <img src="@/assets/imgs/head_portrait.jpg" class="user-head-icon" />
             <span class="text-wrap">
-                <p class="welcome">{{ welcomeMessage[0] }}&nbsp;&nbsp;{{ userStore.userName }}，{{ welcomeMessage[1] }}</p>
+                <p class="welcome">{{ welcomeMessage[0] }}&nbsp;&nbsp;{{ userStore.username }}，{{ welcomeMessage[1] }}</p>
                 <p class="weather">今日晴 🌤，温度20°C-28°C，温度舒适</p>
                 <p class="introduce">项目介绍：本项目是一个学习项目，旨在熟悉前端三大件、vue等。组件均从零开始搭建,尽量不引入第三方库，样式less实现，如有需要也可以此为模板二次开发。
                     项目目前已实现简单的菜单路由权限验证，可支持多级路由，支持动态换肤等。表格数据全部使用nodejs模拟，大部分数据每次请求随机模拟，部分数据在node重启后方可随机刷新</p>

@@ -7,14 +7,14 @@
         </div> -->
 
         <div class="appcart courselist-wrap">
-            <h2 class="title">可选课程</h2>
+            <h2 class="title">发布的课程</h2>
             <table class="apptable">
                 <tr>
                     <th>课程名称</th>
                     <th>课程号</th>
                     <th>开课日期</th>
-                    <th>老师</th>
                     <th>内容</th>
+                    <th>选课人数</th>
                 </tr>
                 <tr v-show="data.courseList.length == 0">
                     <td class="nodata" colspan="6">No Data</td>
@@ -23,69 +23,34 @@
                     <td>{{ item.name }}</td>
                     <td>{{ item.id }}</td>
                     <td>{{ item.date }}</td>
-                    <td>{{ item.trainer_id }}</td>
                     <td>{{ item.content_url }}</td>
-                    <td>
-                        <i class="iconfont icon-zengjia1" :class="{ 'bt-active': !item.isSelect }" @click="confirmSelect(item)"></i>
-                    </td>
+                    <td>{{item.stcnt}}</td>
                 </tr>
             </table>
-        </div>
-
-        <div class="appmask" v-show="data.maskShow">
-            <div class="mesbox">
-                <p class="title">确认选择</p>
-                <i class="comfirm-bt" @click="addCourse()">确认</i>
-                <i class="cancel-bt" @click="data.maskShow = false">取消</i>
-            </div>
         </div>
     </div>
 </template>
 
 <script setup>
 import { onBeforeMount, reactive } from "vue";
-import { getAccessibleCourse, reSelectOrCancelCourse } from "@/api/user.js";
+import { getPublishedCourse, reSelectOrCancelCourse } from "@/api/user.js";
 import SelectBlock from "@/components/SelectBlock.vue";
 import Bus from "@/utils/bus";
 
 const data = reactive({
     courseList: [],
-    semester: "第一学期",
     maskShow: false,
     toBeSelect: null,
 });
 
 //获取课程数据
 async function updataData() {
-    const result = await getAccessibleCourse();
+    const result = await getPublishedCourse();
     if (result.code && result.code === 200) {
         data.courseList = result.data;
     } else console.log("err", result);
 }
 
-//确认选择
-function confirmSelect(item) {
-    if (item.isSelect) {
-        Bus.$emit("popMes", { type: "tip", text: "此课程已选择" });
-        return;
-    }
-    data.maskShow = true;
-    data.toBeSelect = item.name;
-}
-
-//选择课程
-async function addCourse() {
-    const result = await reSelectOrCancelCourse({
-        action: "select",
-        courseName: data.toBeSelect,
-    });
-    data.toBeSelect = null;
-    data.maskShow = false;
-    if (result.code && result.code === 200) {
-        Bus.$emit("popMes", { type: "success", text: "选课成功" });
-        updataData();
-    } else console.log("err", result);
-}
 
 onBeforeMount(() => {
     updataData();

@@ -10,6 +10,17 @@ export function reUserInfo(){
     return request.get('/profile');
 }
 
+//更改用户信息
+export function changeUserInfo(params){
+    return request.post('/update_profile',params);
+}
+
+//更改密码
+export function changePassword(params){
+    return request.post('/update_password',params);
+}
+
+
 //退出登录
 export function reLogout(){
     return request.get('/logout');

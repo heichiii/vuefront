@@ -1,10 +1,11 @@
 <template>
     <div class="appmain">
         <div class="appcart selcart">
-            <SelectBlock atr="学期" describe="请选择" v-model="data.semester">
+            <!-- <SelectBlock atr="学期" describe="请选择" v-model="data.semester">
                 <li>第一学期</li>
-            </SelectBlock>
+            </SelectBlock> -->
             <SelectBlock atr="课程" describe="请选择" v-model="data.course" :change="getCourseStudentList">
+                
                 <li>果树栽培学</li>
                 <li>园艺产品储运学</li>
                 <li>数据库原理</li>
@@ -16,10 +17,9 @@
             <table class="apptable">
                 <tr>
                     <th>序号</th>
-                    <th>学号</th>
+                    <th>工号</th>
                     <th>姓名</th>
-                    <th>学院</th>
-                    <th>班级</th>
+                    <th>成绩</th>
                 </tr>
                 <tr v-show="data.CourseStudentList.length == 0"><td class="nodata" colspan="5"> No Data </td></tr>
                 <tr v-for="(item, index) in data.CourseStudentList">

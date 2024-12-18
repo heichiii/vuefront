@@ -3,7 +3,7 @@
         <div class="appcart welcome-wrap">
             <img src="@/assets/imgs/head_portrait.jpg" class="user-head-icon" />
             <span class="text-wrap">
-                <p class="welcome">{{ welcomeMessage[0] }}&nbsp;&nbsp;{{ userStore.userName }}，{{ welcomeMessage[1] }}</p>
+                <p class="welcome">{{ welcomeMessage[0] }}&nbsp;&nbsp;{{ userStore.username }}，{{ welcomeMessage[1] }}</p>
                 <p class="weather">今日晴 🌤，温度20°C-28°C，温度舒适</p>
                 <p class="introduce">欢迎使用沧海培训系统！</p>
             </span>
@@ -48,47 +48,47 @@ const welcomeMessage = computed(() => {
     return [];
 });
 
-//获取我的信息
-async function getMyInfo(num = 5) {
-    const result = await reMyInform(num);
-    if (result.code && result.code === 200) {
-        data.myInfoList = result.data;
-    } else {
-        console.log("err!");
-    }
-}
-//获取公告
-async function getnotice(num = 5) {
-    const result = await reGetNotice(num);
-    if (result.code && result.code === 200) {
-        data.noticeList = result.data;
-    } else {
-        console.log("err!");
-    }
-}
-//获取最近安排
-async function getMyArrange(num = 5) {
-    const result = await reMyArrange(num);
-    if (result.code && result.code === 200) {
-        data.myArrange = result.data;
-    } else {
-        console.log("err!");
-    }
-}
-//获取教室预约列表
-async function getRoomList(num = 7) {
-    const result = await reReserveClassroom();
-    if (result.code && result.code == 200) {
-        if (result.data.length < num) data.roomList = result.data;
-        else data.roomList = result.data.slice(0, num);
-    } else console.log("err", result);
-}
+// //获取我的信息
+// async function getMyInfo(num = 5) {
+//     const result = await reMyInform(num);
+//     if (result.code && result.code === 200) {
+//         data.myInfoList = result.data;
+//     } else {
+//         console.log("err!");
+//     }
+// }
+// //获取公告
+// async function getnotice(num = 5) {
+//     const result = await reGetNotice(num);
+//     if (result.code && result.code === 200) {
+//         data.noticeList = result.data;
+//     } else {
+//         console.log("err!");
+//     }
+// }
+// //获取最近安排
+// async function getMyArrange(num = 5) {
+//     const result = await reMyArrange(num);
+//     if (result.code && result.code === 200) {
+//         data.myArrange = result.data;
+//     } else {
+//         console.log("err!");
+//     }
+// }
+// //获取教室预约列表
+// async function getRoomList(num = 7) {
+//     const result = await reReserveClassroom();
+//     if (result.code && result.code == 200) {
+//         if (result.data.length < num) data.roomList = result.data;
+//         else data.roomList = result.data.slice(0, num);
+//     } else console.log("err", result);
+// }
 
 onBeforeMount(() => {
-    getMyInfo(5);
-    getnotice(5);
-    getMyArrange(4);
-    getRoomList(7);
+    // getMyInfo(5);
+    // getnotice(5);
+    // getMyArrange(4);
+    // getRoomList(7);
 });
 </script>
 

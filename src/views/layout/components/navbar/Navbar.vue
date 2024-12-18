@@ -38,7 +38,7 @@
         <!-- 用户信息 -->
         <span class="user-area">
             <img src="@/assets/imgs/head_portrait.jpg" class="user-head-icon" />
-            <p class="user-name">{{ userStore.userName }}</p>
+            <p class="user-name">{{ userStore.username }}</p>
             <i class="iconfont icon-angle-down user-arrow"></i>
             <div class="user-menu">
                 <div class="menu" @click="router.push({ name: 'UserInfo' })">个人信息</div>

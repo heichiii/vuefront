@@ -4,7 +4,7 @@ const resdata={
     },
     userInfo:{
         role:"student",
-        userName:"禾与禾云",
+        username:"禾与禾云",
         phone:'123456',
         isLogin:true,
     },

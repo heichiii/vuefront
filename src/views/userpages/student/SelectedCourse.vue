@@ -1,24 +1,23 @@
 <template>
     <div class="appmain">
         <div class="appcart courselist-wrap">
-            <h2 class="title">第一学期 已选课程</h2>
+            <h2 class="title">已选课程</h2>
             <button class="selbt" @click="router.push({ name: 'SelectCourse' })">选课 +</button>
             <table class="apptable">
                 <tr>
                     <th>课程名称</th>
-                    <th>教师</th>
-                    <th>节次</th>
-                    <th>教室</th>
-                    <th>学分</th>
-                    <th>操作</th>
+                    <th>课程号</th>
+                    <th>开课日期</th>
+                    <th>老师</th>
+                    <th>内容</th>
                 </tr>
                 <tr v-show="data.courseList.length == 0"><td class="nodata" colspan="6"> No Data </td></tr>
                 <tr v-for="item in data.courseList" :key="item.id">
-                    <td>{{ item.courseName }}</td>
-                    <td>{{ item.teacher }}</td>
-                    <td>{{ item.timeslot }}</td>
-                    <td>{{ item.classroom }}</td>
-                    <td>{{ item.credit }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.date }}</td>
+                    <td>{{ item.trainer_id }}</td>
+                    <td>{{ item.content_url }}</td>
                     <td>
                         <i class="iconfont icon-shanchu" :class="{ 'bt-active': !item.isNecess }" @click="confirmCancel(item)"></i>
                     </td>
@@ -65,7 +64,7 @@ function confirmCancel(item) {
         return;
     }
     data.maskShow = true;
-    data.toBeCancel = item.courseName;
+    data.toBeCancel = item.name;
 }
 //取消课程
 async function cancelCourse() {

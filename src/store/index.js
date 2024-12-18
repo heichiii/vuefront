@@ -9,7 +9,7 @@ export const useUserStore=defineStore("user",{
         return {
             token:getToken(),
             role:"visitor",
-            userName:"visitor",
+            username:"visitor",
             phone:null,
             isLogin:false,
             userRoutes:[],
@@ -26,7 +26,7 @@ export const useUserStore=defineStore("user",{
             let info=await reUserInfo();
             if(info.code==200){
                 this.role=info.data.role;
-                this.userName=info.data.userName;
+                this.username=info.data.username;
                 this.phone=info.data.phone;
                 this.isLogin=info.data.isLogin;
 
@@ -35,7 +35,7 @@ export const useUserStore=defineStore("user",{
                 this.department=info.data.department;
                 this.position=info.data.position;
                 this.email=info.data.email;
-                
+
                 return true;
             }
             else return false;
@@ -43,7 +43,7 @@ export const useUserStore=defineStore("user",{
 
         resetUserInfo(){
             this.role="visitor";
-            this.userName="visitor";
+            this.username="visitor";
             this.phone=null;
             this.isLogin=false;
         },
