@@ -26,13 +26,16 @@ export function addCourse(params){
 }
 
 
-
+//获取可查看的课程列表
+export function reCourseList(){
+    return request.get('/option_course');
+}
 
 
 
 //获取课程学生列表
-export function reCourseStudentList(courseName){
-    return request.get(`/CourseStudentList?courseName=${courseName}`);
+export function reCourseStudentList(coursename){
+    return request.get(`/CourseStudentList?coursename=${coursename}`);
 }
 
 //获取教学安排

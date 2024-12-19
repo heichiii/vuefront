@@ -4,13 +4,10 @@
             <!-- <SelectBlock atr="学期" describe="请选择" v-model="data.semester">
                 <li>第一学期</li>
             </SelectBlock> -->
+            
             <SelectBlock atr="课程" describe="请选择" v-model="data.course" :change="getCourseStudentList">
-                
-                <li>果树栽培学</li>
-                <li>园艺产品储运学</li>
-                <li>数据库原理</li>
-                <li>数据结构</li>
-                <li>大学体育3</li>
+                <option v-for="(course, index) in courses.courseList" :key="index" :value="course.name">{{ course.name }}</option>
+
             </SelectBlock>
         </div>
         <div class="appcart">
@@ -24,10 +21,9 @@
                 <tr v-show="data.CourseStudentList.length == 0"><td class="nodata" colspan="5"> No Data </td></tr>
                 <tr v-for="(item, index) in data.CourseStudentList">
                     <td>{{ index + 1 }}</td>
-                    <td>{{ item.studentId }}</td>
+                    <td>{{ item.employee_id }}</td>
                     <td>{{ item.name }}</td>
-                    <td>{{ item.college }}</td>
-                    <td>{{ item.class + "班" }}</td>
+                    <td>{{ item.grade }}</td>
                 </tr>
             </table>
         </div>
@@ -36,14 +32,26 @@
 
 <script setup>
 import SelectBlock from "@/components/SelectBlock.vue";
-import { reactive } from "vue";
-import { reCourseStudentList } from "@/api/user";
+import { reactive,onBeforeMount } from "vue";
+import { reCourseStudentList,reCourseList } from "@/api/user";
+
+const courses=reactive({
+    courseList:[],
+})
 
 const data = reactive({
-    semester: "第一学期",
     course: "",
     CourseStudentList: [],
 });
+//获取课程数据
+async function updataData() {
+    const result = await reCourseList();
+    if (result.code && result.code === 200) {
+        courses.courseList = result.data;
+    } else console.log("err", result);
+}
+
+
 
 //获取学生信息
 async function getCourseStudentList() {
@@ -52,6 +60,11 @@ async function getCourseStudentList() {
         data.CourseStudentList = result.data;
     } else console.log("err", result);
 }
+
+onBeforeMount(() => {
+    updataData();
+});
+
 </script>
 
 <style lang="less" scoped>
