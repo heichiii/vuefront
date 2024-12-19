@@ -31,6 +31,10 @@ export function reCourseList(){
     return request.get('/option_course');
 }
 
+//修改成绩
+export function updateGrade(params){
+    return request.post('/set_grade',params);
+}
 
 
 //获取课程学生列表
