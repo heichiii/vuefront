@@ -66,3 +66,21 @@ export function reOptionCourse(){
 export function reSelectOrCancelCourse(params){
     return request.get(`/select_course?action=${params.action}&courseName=${params.courseName}`);
 }
+
+
+
+
+//注册
+export function register(params){
+    return request.post('/register',params);
+}
+
+//获取所有用户信息
+export function getUsers(){
+    return request.get('/users');
+}
+
+//删除用户
+export function redeleteUser(params){
+    return request.post('/delete_user',params);
+}

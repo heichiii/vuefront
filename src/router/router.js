@@ -69,7 +69,7 @@ const routes = [
                 path:'classroom',
                 name:'classroomMenu',
                 redirect:'/classroom/classroom-query',
-                meta:{ title:'教室' , icon:"icon-jiaoshi" , limit:["manager"] },
+                meta:{ title:'教室' , icon:"icon-jiaoshi" , limit:[] },
                 children:[
                     {
                         path:'classroom-query',
@@ -89,7 +89,7 @@ const routes = [
                 path:'course-select',
                 name:'course-select',
                 redirect:'/course-select/selected-course',
-                meta:{ title:'课程' , icon:"icon-kechengguanli" , limit:["manager","employee"] },
+                meta:{ title:'课程' , icon:"icon-kechengguanli" , limit:["employee"] },
                 children:[
                     {
                         path:'selected-course',
@@ -109,7 +109,7 @@ const routes = [
                 path:'course-publish',
                 name:'course-publish',
                 redirect:'/course-publish/published-course',
-                meta:{ title:'课程' , icon:"icon-kechengguanli" , limit:["manager","trainer"] },
+                meta:{ title:'课程' , icon:"icon-kechengguanli" , limit:["trainer"] },
                 children:[
                     {
                         path:'published-course',
@@ -129,19 +129,39 @@ const routes = [
                 path:'timetable',
                 name:'UserTimeTable',
                 component : () => import( '@/views/userpages/student/UserTimeTable.vue' ),
-                meta:{ title:'课程表' , icon:"icon-calendar-alt" , limit:["manager"] , cache:true }
+                meta:{ title:'课程表' , icon:"icon-calendar-alt" , limit:[] , cache:true }
             },
             {
                 path:'studentinfo',
                 name:'StudentInfo',
                 component : () => import( '@/views/userpages/teacher/StudentInfo.vue' ),
-                meta:{ title:'学生信息' , icon:"icon-xuesheng" , limit:["manager","trainer"] , cache:true }
+                meta:{ title:'学生信息' , icon:"icon-xuesheng" , limit:["trainer"] , cache:true }
             },
             {
                 path:'teaching',
                 name:'Teaching',
                 component : () => import( '@/views/userpages/teacher/Teaching.vue' ),
-                meta:{ title:'教学安排' , icon:"icon-calendar-alt" , limit:["manager"] , cache:true }
+                meta:{ title:'教学安排' , icon:"icon-calendar-alt" , limit:[] , cache:true }
+            },
+            {
+                path:'userlist',
+                name:'UserList',
+                redirect:'/userlist',
+                meta:{ title:'用户管理' , icon:"icon-user-circle" , limit:["manager"] },
+                children:[
+                    {
+                        path:'register',
+                        name:'Register',
+                        component : () => import( '@/views/userpages/manager/Register.vue' ),
+                        meta:{ title:'添加用户' , icon:"" , limit:["manager"] },
+                    },
+                    {
+                        path:'users',
+                        name:'Users',
+                        component : () => import( '@/views/userpages/manager/UserList.vue' ),
+                        meta:{ title:'用户列表' , icon:"" , limit:["manager"] },
+                    },
+                ]
             },
         ]
     },
