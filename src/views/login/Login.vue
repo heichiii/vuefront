@@ -43,9 +43,9 @@ const passwordInput = ref();
 const iconHide = ref();
 
 const logindata = reactive({
-    username: "heichi",
-    password: "heichi",
-    role: "student",
+    username: "emp1",
+    password: "emp1",
+    role: "employee",
 });
 
 //改变密码显示状态

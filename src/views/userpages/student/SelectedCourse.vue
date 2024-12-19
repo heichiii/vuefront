@@ -10,14 +10,16 @@
                     <th>开课日期</th>
                     <th>老师</th>
                     <th>内容</th>
+                    <th>成绩</th>
                 </tr>
                 <tr v-show="data.courseList.length == 0"><td class="nodata" colspan="6"> No Data </td></tr>
                 <tr v-for="item in data.courseList" :key="item.id">
                     <td>{{ item.name }}</td>
                     <td>{{ item.id }}</td>
                     <td>{{ item.date }}</td>
-                    <td>{{ item.trainer_id }}</td>
+                    <td>{{ item.trainer }}</td>
                     <td>{{ item.content_url }}</td>
+                    <td>{{ item.grade }}</td>
                     <td>
                         <i class="iconfont icon-shanchu" :class="{ 'bt-active': !item.isNecess }" @click="confirmCancel(item)"></i>
                     </td>
